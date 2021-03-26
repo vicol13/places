@@ -4,9 +4,7 @@ final List<Sight> mocks = [
   
   Sight(
       name: "Gallerie Degli Uffizi",
-      details: """One of the great museums of the world, the Uffizi houses the premier collection of Italian Renaissance art, 
-          featuring works by such masters as Botticelli, Titian, Michelangelo and da Vinci.
-          """,
+      details: "One of the great museums of the world, the Uffizi houses the premier collection of Italian Renaissance art, featuring works by such masters as Botticelli, Titian, Michelangelo and da Vinci.",
       url:
           "https://images.unsplash.com/photo-1601130304320-0053d8022d91?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80",
       lat: 43.767971526531944,
