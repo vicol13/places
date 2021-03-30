@@ -17,7 +17,7 @@ class StyledTitle extends StatelessWidget {
       textAlign: TextAlign.left,
       text: TextSpan(
           text: '${_firstWord[0]}',
-          style: TextStyle(color: Colors.green, fontSize: this.fontSize),
+          style: TextStyle(color: Colors.green, fontSize: this.fontSize,fontWeight: FontWeight.bold),
           children: [
             TextSpan(
                 text: '${_firstWord.substring(1, _firstWord.length)}\n',
