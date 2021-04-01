@@ -21,19 +21,16 @@ class SightCard extends StatelessWidget {
                 child: Container(
               //set all Alignment of container's elements relative to expanded parrent
               alignment: Alignment.topLeft,
-
               decoration: BoxDecoration(
                   //image is not required as part of 4.4
                   image: DecorationImage(
                       fit: BoxFit.cover, image: NetworkImage(this.sight.url)),
                   //should be something like
                   //color: Colors.red,
-
                   //set the radius of upper left/righe corners
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(10),
                       topRight: Radius.circular(10))),
-
               child: Container(
                   //set the space of container's childs relative to container parrent
                   padding: EdgeInsets.only(top: 20, left: 20, right: 20),
@@ -55,13 +52,11 @@ class SightCard extends StatelessWidget {
                       )
                       //should be something like this
                       //Container(height:10,weight:10,color: Colors.black)
-                    
                     ],
                   )),
             )),
             Expanded(
               child: Container(
-
                 alignment: Alignment.topLeft,
                 decoration: BoxDecoration(
                     color: Colors.blueGrey[50],
