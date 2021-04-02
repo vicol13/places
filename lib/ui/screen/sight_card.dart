@@ -86,6 +86,7 @@ class _SightCardBody extends StatelessWidget {
     return Container(
       alignment: Alignment.topLeft,
       child: Container(
+        color: Colors.grey[300],
         padding: EdgeInsets.only(top: 20, left: 20, right: 100),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(
