@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/widgets/network_image.dart';
+import './sight_card.dart';
 
-class SightCard extends StatelessWidget {
+class VisitedSightCard extends StatelessWidget {
   final Sight sight;
 
-  const SightCard({this.sight});
+  const VisitedSightCard({this.sight});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class SightCard extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                  child: SightCardHeader(
+                  child: _VisitedSightCardHeader(
                 sightType: this.sight.type,
                 sightUrl: this.sight.url,
               )),
@@ -35,11 +36,11 @@ class SightCard extends StatelessWidget {
   }
 }
 
-class SightCardHeader extends StatelessWidget {
+class _VisitedSightCardHeader extends StatelessWidget {
   final String sightUrl;
   final String sightType;
 
-  SightCardHeader({this.sightType, this.sightUrl});
+  _VisitedSightCardHeader({this.sightType, this.sightUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -64,46 +65,20 @@ class SightCardHeader extends StatelessWidget {
                       fontSize: 15,
                       fontWeight: FontWeight.bold),
                 ),
-                Icon(
-                  Icons.bookmark,
-                  color: Colors.white,
-                )
+                Row(children: [
+                  Icon(
+                    Icons.share,
+                    color: Colors.white,
+                  ),
+                  SizedBox(width: 15),
+                  Icon(
+                    Icons.close,
+                    color: Colors.white,
+                  )
+                ])
               ],
             )),
       ],
-    );
-  }
-}
-
-class SightCardBody extends StatelessWidget {
-  final String sightName;
-  final String sightDetails;
-
-  SightCardBody({this.sightDetails, this.sightName});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.topLeft,
-      child: Container(
-        color: Colors.grey[300],
-        padding: EdgeInsets.only(top: 20, left: 20, right: 100),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(
-            sightName,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-          ),
-          SizedBox(height: 10),
-          Text(
-            sightDetails,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(color: Colors.grey),
-          )
-        ]),
-      ),
     );
   }
 }
