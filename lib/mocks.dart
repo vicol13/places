@@ -37,5 +37,38 @@ final List<Sight> mocks = [
       url: "https://images.unsplash.com/photo-1614702166880-f1988acbb3cf?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       lat:43.769917905912145, lon:11.25628592826575
       ,type: "Piazza"
+    ),
+    //visited
+    Sight(
+      name: "Chicago Riverwalk",
+      details:"""This is one of several outdoor options in Chicago where you can enjoy the waterways, public art, and biking. This time of the year (with lock down) is especially quiet for reflective moments. There is limited recreational services but it's a great spot to enjoy the city""",
+      url: "https://images.unsplash.com/photo-1596250410216-1ac77dc208e3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80",
+      lat:43.769917905912145, lon:11.25628592826575
+      ,type: "Side Walk"
+    ),
+
+    Sight(
+      name: "Poipu",
+      details:"""Kauai’s South Shore is home to some of the country’s best beaches—for swimming, diving and all sorts of water sports. If sunbathing on a gorgeous beach isn’t relaxing enough, try a spa (where many treatments incorporate local ingredients). And if you’re in Poipu for a romantic escape, splurge on an oceanview room—the sunsets are spectacular.""",
+      url: "https://images.unsplash.com/photo-1541221079453-a7fb03527c8c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      lat:43.769917905912145, lon:11.25628592826575
+      ,type: "Beach"
+    ),
+    //want to visit
+    Sight(
+      name: "Colosseum",
+      details:"""Perhaps the best-preserved of the monuments of ancient Rome, this huge marble structure was built to hold more than 50,000 spectators to witness bloody contests of might and the slaughter of wild beasts.""",
+      url: "https://images.unsplash.com/photo-1509024644558-2f56ce76c490?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
+      lat:43.769917905912145, lon:11.25628592826575
+      ,type: "Ancient Ruins"
+    ),
+
+    Sight(
+      name: "Pantheon",
+      details:"""One of the most magical place in Rome! Spectacular, at night. It is certainly one of the oldest monuments in Rome, and we are still here to tell its story. Wonderful at night, when no one is around. We will definitely go back. """,
+      url: "https://images.unsplash.com/photo-1514829342799-321105464bb9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      lat:43.769917905912145, lon:11.25628592826575
+      ,type: "Piazza"
     )
+
 ];
