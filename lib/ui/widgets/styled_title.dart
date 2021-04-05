@@ -17,20 +17,21 @@ class StyledTitle extends StatelessWidget {
       textAlign: TextAlign.left,
       text: TextSpan(
           text: '${_firstWord[0]}',
-          style: TextStyle(color: Colors.green, fontSize: this.fontSize,fontWeight: FontWeight.bold),
+          style: Theme.of(context).textTheme.subtitle1.copyWith(fontSize: fontSize,color: Colors.green),
           children: [
             TextSpan(
                 text: '${_firstWord.substring(1, _firstWord.length)}\n',
-                style: TextStyle(color: Colors.black),
+                style: Theme.of(context).textTheme.subtitle1.copyWith(fontSize: fontSize),
                 children: [
                   TextSpan(
                       text: '${_secondWord[0]}',
-                      style: TextStyle(color: Colors.yellow),
+                      style: Theme.of(context).textTheme.subtitle1.copyWith(color: Colors.yellow,fontSize: fontSize),
                       children: [
                         TextSpan(
                             text:
                                 '${_secondWord.substring(1, _secondWord.length)}',
-                            style: TextStyle(color: Colors.black))
+                            style: Theme.of(context).textTheme.subtitle1.copyWith(fontSize: fontSize)
+                            )
                       ])
                 ]),
           ]),
