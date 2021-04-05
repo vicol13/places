@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:places/ui/screen/res/themes.dart';
 import 'package:places/ui/screen/sight_list_screen.dart';
 import 'package:places/ui/screen/visiting_screen.dart';
 
@@ -12,9 +13,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Places',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        theme: brightTheme,
         home: MyApp()
         );
   }
@@ -41,14 +40,13 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     return Scaffold(
       body: TabBarView(
           controller: _controller,
+           physics: NeverScrollableScrollPhysics(),
           children: [SightListScreen(), VisitingScreen()]),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _controller.index,
         onTap: (curentIndex) {
           _controller.animateTo(curentIndex);
         },
-        selectedItemColor: Color.fromRGBO(59, 62, 91, 1),
-        unselectedItemColor: Colors.grey[300],
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.reorder,size: 35), label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.favorite,size: 35), label: "")
