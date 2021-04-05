@@ -59,10 +59,7 @@ class SightCardHeader extends StatelessWidget {
               children: [
                 Text(
                   sightType,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.subtitle1.copyWith(fontSize: 15,color: Colors.white),
                 ),
                 Icon(
                   Icons.bookmark,
@@ -86,21 +83,21 @@ class SightCardBody extends StatelessWidget {
     return Container(
       alignment: Alignment.topLeft,
       child: Container(
-        color: Colors.grey[300],
+        color: Theme.of(context).cardColor,
         padding: EdgeInsets.only(top: 20, left: 20, right: 100),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(
             sightName,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            style: Theme.of(context).textTheme.subtitle1.copyWith(fontSize: 20),
           ),
           SizedBox(height: 10),
           Text(
             sightDetails,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(color: Colors.grey),
+            style: Theme.of(context).textTheme.bodyText2,
           )
         ]),
       ),
