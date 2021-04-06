@@ -12,35 +12,34 @@ class SightListScreen extends StatefulWidget {
 class _State extends State<SightListScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SightDetails(mockdata.mocks[0]),
-    );
     // return Scaffold(
-    //   appBar: PreferredSize(
-    //     preferredSize: Size.fromHeight(70),
-    //     child: AppBar(
-    //       elevation: 0,
-    //       centerTitle: false,
-    //       backgroundColor: Colors.white, //??
-    //       title: StyledTitle('list of', 'interesting places'),
-    //     ),
-    //   ),
-    //   body: Center(
-    //     child: SingleChildScrollView(
-    //       child: Column(
-    //         children:[
-    //           SizedBox(height: 30,),
-    //           SightCard(sight:mockdata.mocks[0]),
-    //           SizedBox(height: 30,),
-    //           SightCard(sight:mockdata.mocks[1]),
-    //           SizedBox(height: 30,),
-    //           SightCard(sight:mockdata.mocks[2]),
-    //           SizedBox(height: 30,),
-    //           SightCard(sight:mockdata.mocks[3])
-    //         ]
-    //         ),
-    //     ),
-    //   ),
+    //   body: SightDetails(mockdata.mocks[0]),
     // );
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(70),
+        child: Container(
+          alignment: Alignment.topLeft,
+          padding: EdgeInsets.only(top: 50,left: 30),
+          child: StyledTitle('list of', 'interesting places'),
+        ),
+      ),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            children:[
+              SizedBox(height: 30,),
+              SightCard(sight:mockdata.mocks[0]),
+              SizedBox(height: 30,),
+              SightCard(sight:mockdata.mocks[1]),
+              SizedBox(height: 30,),
+              SightCard(sight:mockdata.mocks[2]),
+              SizedBox(height: 30,),
+              SightCard(sight:mockdata.mocks[3])
+            ]
+            ),
+        ),
+      ),
+    );
   }
 }
