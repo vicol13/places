@@ -14,17 +14,17 @@ class App extends StatelessWidget {
     return MaterialApp(
         title: 'Places',
         theme: brightTheme,
-        home: MyApp()
+        home: MainScreen()
         );
   }
 }
 
-class MyApp extends StatefulWidget {
+class MainScreen extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  _MainScreen createState() => _MainScreen();
 }
 
-class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
+class _MainScreen extends State<MainScreen> with SingleTickerProviderStateMixin {
   TabController _controller;
   @override
   void initState() {
