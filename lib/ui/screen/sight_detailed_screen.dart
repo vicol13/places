@@ -24,27 +24,26 @@ class SightDetails extends StatelessWidget {
               padding: EdgeInsets.only(top: 70, left: 30),
               child: Icon(
                 Icons.backspace,
-                color: Colors.white,
+                color:Theme.of(context).backgroundColor,
                 size: 40,
               ),
             )
           ]),
         ),
-
         Expanded(
           child: Column(children: [
             Container(
-              color: Colors.blueGrey[50],
+              color: Theme.of(context).backgroundColor,
               alignment: Alignment.topLeft,
               padding:
                   EdgeInsets.only(left: 15, right: 15, bottom: 10, top: 20),
-              //maybe should be single scroll child ?
+              //will be refactored to single scroll child 
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     this.sight.name,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                    style: Theme.of(context).textTheme.subtitle1.copyWith(fontSize: 25),
                   ),
                   SizedBox(height: 15),
                   Row(
@@ -52,20 +51,20 @@ class SightDetails extends StatelessWidget {
                     children: [
                       Text(
                         this.sight.type,
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: Theme.of(context).textTheme.bodyText1.copyWith(fontWeight: FontWeight.bold),
                       ),
                       SizedBox(width: 15),
                       Text(
                         "closed after 9",
-                        style: TextStyle(color: Colors.grey),
+                        style: Theme.of(context).textTheme.bodyText2,
                       )
                     ],
                   ),
                   SizedBox(height: 40),
-                  Text(this.sight.details),
+                  Text(this.sight.details,style: Theme.of(context).textTheme.bodyText1),
                   SizedBox(height: 25),
                   Container(
-                    color: Colors.lightGreen,
+                    color: Theme.of(context).buttonColor,
                     height: 50,
                   ),
                   SizedBox(height: 15),
@@ -78,7 +77,7 @@ class SightDetails extends StatelessWidget {
                     children: [
                       Expanded(
                           child: Container(
-                        color: Colors.lightGreen,
+                        color: Theme.of(context).buttonColor,
                         height: 50,
                       )),
                       SizedBox(
@@ -86,7 +85,7 @@ class SightDetails extends StatelessWidget {
                       ),
                       Expanded(
                           child: Container(
-                        color: Colors.lightGreen,
+                        color: Theme.of(context).buttonColor,
                         height: 50,
                       ))
                     ],

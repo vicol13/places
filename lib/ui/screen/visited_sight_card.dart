@@ -60,10 +60,7 @@ class _VisitedSightCardHeader extends StatelessWidget {
               children: [
                 Text(
                   sightType,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.subtitle1.copyWith(color: Colors.white),
                 ),
                 Row(children: [
                   Icon(

@@ -13,7 +13,7 @@ class _State extends State<SightListScreen> {
   @override
   Widget build(BuildContext context) {
     // return Scaffold(
-      // body: SightDetails(mockdata.mocks[0]),
+    //   body: SightDetails(mockdata.mocks[0])
     // );
     return Scaffold(
       appBar: PreferredSize(
@@ -21,7 +21,7 @@ class _State extends State<SightListScreen> {
         child: AppBar(
           elevation: 0,
           centerTitle: false,
-          backgroundColor: Colors.white, //??
+          backgroundColor: Theme.of(context).backgroundColor,
           title: StyledTitle('list of', 'interesting places'),
         ),
       ),

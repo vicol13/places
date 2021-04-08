@@ -12,11 +12,10 @@ class VisitingScreen extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             elevation: 0,
-            backgroundColor: Colors.white,
+            backgroundColor: Theme.of(context).backgroundColor,
             title: Text(
               "Favorites",
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+              style:Theme.of(context).textTheme.subtitle1,
             ),
             bottom: PreferredSize(
               preferredSize: Size.fromHeight(50),
@@ -25,14 +24,9 @@ class VisitingScreen extends StatelessWidget {
                 padding: EdgeInsets.only(left: 40, right: 40),
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.grey[300],
+                      color: Theme.of(context).cardColor,
                       borderRadius: BorderRadius.circular(30)),
                   child: TabBar(
-                    indicatorColor: Colors.transparent,
-                    unselectedLabelColor: Colors.grey,
-                    indicator: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Color.fromRGBO(59, 62, 91, 1)),
                     tabs: [
                       Tab(
                         text: "Wish List",
