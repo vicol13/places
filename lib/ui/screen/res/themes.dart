@@ -7,8 +7,11 @@ const Color lt_blue = Color.fromRGBO(59, 62, 91, 1);
 const Color lt_grey = Color.fromRGBO(245, 245, 245, 1);
 const Color lt_grey_text = Color.fromRGBO(124, 126, 146, 0.56);
 const Color lt_green = Color.fromRGBO(76, 175, 80, 1);
+const Color lt_green_op50 = Color.fromRGBO(76, 175, 80, 0.3);
+
 
 final brightTheme = ThemeData(
+    primaryColor: lt_blue,
     backgroundColor: Colors.white,
     scaffoldBackgroundColor: Colors.white,
     buttonColor: lt_green,
@@ -16,7 +19,8 @@ final brightTheme = ThemeData(
     textTheme: TextTheme(
       bodyText1: TextStyle(color: Colors.black),
       bodyText2: TextStyle(color: lt_grey_text),
-      subtitle1: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)
+      subtitle1: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+      subtitle2: TextStyle(color: lt_grey_text, fontWeight: FontWeight.bold)
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: Colors.white, selectedItemColor: lt_blue),
@@ -25,7 +29,11 @@ final brightTheme = ThemeData(
       labelColor: Colors.white,
       indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(50), color: lt_blue),
-    ));
+    ),
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.white
+    )
+    );
 
 ///
 /// dark theme colors
@@ -39,6 +47,8 @@ final darkTheme = ThemeData(
     cardColor: dt_dark_blue,
     scaffoldBackgroundColor: dt_blue,
     buttonColor: dt_green,
+    primaryColor: Colors.white,
+    
     textTheme: TextTheme(
       bodyText1: TextStyle(color: Colors.white),
       bodyText2: TextStyle(color: lt_grey_text),
@@ -46,11 +56,15 @@ final darkTheme = ThemeData(
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: dt_blue,
-        selectedItemColor: dt_green,
+        selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey
         ),
     tabBarTheme: TabBarTheme(
       unselectedLabelColor: lt_grey_text,
       indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(50), color: dt_green),
-    ));
+    ),
+      appBarTheme: AppBarTheme(
+      backgroundColor: dt_blue
+    ),
+    );
