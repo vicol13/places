@@ -1,4 +1,5 @@
 import 'package:places/domain/sight.dart';
+import 'package:places/domain/sight_type.dart';
 
 final List<Sight> mocks = [
   
@@ -9,7 +10,7 @@ final List<Sight> mocks = [
           "https://images.unsplash.com/photo-1601130304320-0053d8022d91?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80",
       lat: 43.767971526531944,
       lon: 11.255825782700459,
-      type: 'Museum'),
+      type: SightType.MUSEUM),
   
   Sight(
       name: "Basilica of Santa Croce in Florence",
@@ -18,7 +19,7 @@ final List<Sight> mocks = [
           "https://images.unsplash.com/photo-1573154169856-a7caf849812f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1264&q=80",
       lat: 43.768792787364255,
       lon: 11.262810255084956,
-      type: "Church"),
+      type: SightType.SPECIAL_PLACE),
   
   Sight(
       name: "Museo Galileo",
@@ -27,7 +28,7 @@ final List<Sight> mocks = [
           "https://images.unsplash.com/photo-1579964742818-02a2b49194e3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       lat: 43.76803584363469,
       lon: 11.256450369209151,
-      type: "Museum"),
+      type: SightType.MUSEUM),
     
     Sight(
       name: "Piazza della Signoria",
@@ -36,7 +37,7 @@ final List<Sight> mocks = [
       """,
       url: "https://images.unsplash.com/photo-1614702166880-f1988acbb3cf?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       lat:43.769917905912145, lon:11.25628592826575
-      ,type: "Piazza"
+      ,type: SightType.SPECIAL_PLACE
     ),
     //visited
     Sight(
@@ -44,7 +45,7 @@ final List<Sight> mocks = [
       details:"""This is one of several outdoor options in Chicago where you can enjoy the waterways, public art, and biking. This time of the year (with lock down) is especially quiet for reflective moments. There is limited recreational services but it's a great spot to enjoy the city""",
       url: "https://images.unsplash.com/photo-1596250410216-1ac77dc208e3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80",
       lat:43.769917905912145, lon:11.25628592826575
-      ,type: "Side Walk"
+      ,type: SightType.SPECIAL_PLACE
     ),
 
     Sight(
@@ -52,7 +53,7 @@ final List<Sight> mocks = [
       details:"""Kauai’s South Shore is home to some of the country’s best beaches—for swimming, diving and all sorts of water sports. If sunbathing on a gorgeous beach isn’t relaxing enough, try a spa (where many treatments incorporate local ingredients). And if you’re in Poipu for a romantic escape, splurge on an oceanview room—the sunsets are spectacular.""",
       url: "https://images.unsplash.com/photo-1541221079453-a7fb03527c8c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       lat:43.769917905912145, lon:11.25628592826575
-      ,type: "Beach"
+      ,type: SightType.SPECIAL_PLACE
     ),
     //want to visit
     Sight(
@@ -60,7 +61,7 @@ final List<Sight> mocks = [
       details:"""Perhaps the best-preserved of the monuments of ancient Rome, this huge marble structure was built to hold more than 50,000 spectators to witness bloody contests of might and the slaughter of wild beasts.""",
       url: "https://images.unsplash.com/photo-1509024644558-2f56ce76c490?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
       lat:43.769917905912145, lon:11.25628592826575
-      ,type: "Ancient Ruins"
+      ,type: SightType.SPECIAL_PLACE
     ),
 
     Sight(
@@ -68,7 +69,7 @@ final List<Sight> mocks = [
       details:"""One of the most magical place in Rome! Spectacular, at night. It is certainly one of the oldest monuments in Rome, and we are still here to tell its story. Wonderful at night, when no one is around. We will definitely go back. """,
       url: "https://images.unsplash.com/photo-1514829342799-321105464bb9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
       lat:43.769917905912145, lon:11.25628592826575
-      ,type: "Piazza"
+      ,type: SightType.SPECIAL_PLACE
     )
 
 ];
