@@ -4,10 +4,9 @@ import 'package:places/domain/sight.dart';
 import 'package:places/ui/widgets/network_image.dart';
 import 'package:places/domain/sight_type.dart';
 
-
 ///
 /// represet the screen which will display the details of sight
-/// 
+///
 ///
 class SightDetails extends StatelessWidget {
   Sight sight;
@@ -39,30 +38,34 @@ class SightDetails extends StatelessWidget {
                 ///
                 /// Back button with arrow
                 ///
-                InkWell(
-                  onTap: () {
-                    print("Back button callback");
-                  },
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 70, left: 30),
-                    child: Container(
-                        height: 50,
-                        width: 50,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: Theme.of(context).backgroundColor,
-                        ),
-                        child: Container(
-                            height: 20,
-                            width: 20,
-                            child: SvgPicture.asset(
-                                'res/assets/arrow_of_back_button.svg',
-                                color: Theme.of(context).primaryColor))),
+                Padding(
+                  padding: EdgeInsets.only(top: 70, left: 30),
+                  child: Material(
+                    type: MaterialType.transparency,
+                    child: InkWell(
+                      onTap: () {
+                        print("back button callback");
+                      },
+                      child: Container(
+                          height: 50,
+                          width: 50,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: Theme.of(context).backgroundColor,
+                          ),
+                          child: Container(
+                              height: 20,
+                              width: 20,
+                              child: SvgPicture.asset(
+                                  'res/assets/arrow_of_back_button.svg',
+                                  color: Theme.of(context).primaryColor))),
+                    ),
                   ),
-                )
+                ),
               ]),
             ),
+
             ///
             /// body
             ///
@@ -110,12 +113,14 @@ class SightDetails extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: 40),
+
                       ///
                       /// Sight details
                       ///
                       Text(this.sight.details,
                           style: Theme.of(context).textTheme.bodyText1),
                       SizedBox(height: 25),
+
                       ///
                       /// build route button
                       ///
@@ -196,6 +201,7 @@ class SightDetails extends StatelessWidget {
                               ),
                             ),
                           ),
+
                           ///
                           /// To favorites button
                           ///
