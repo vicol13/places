@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 
 ///
 /// light theme colors
-/// 
+///
 const Color lt_blue = Color.fromRGBO(59, 62, 91, 1);
 const Color lt_grey = Color.fromRGBO(245, 245, 245, 1);
 const Color lt_grey_text = Color.fromRGBO(124, 126, 146, 0.56);
 const Color lt_green = Color.fromRGBO(76, 175, 80, 1);
 const Color lt_green_op50 = Color.fromRGBO(76, 175, 80, 0.3);
-
 
 final brightTheme = ThemeData(
     primaryColor: lt_blue,
@@ -17,11 +16,11 @@ final brightTheme = ThemeData(
     buttonColor: lt_green,
     cardColor: lt_grey,
     textTheme: TextTheme(
-      bodyText1: TextStyle(color: Colors.black),
-      bodyText2: TextStyle(color: lt_grey_text),
-      subtitle1: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-      subtitle2: TextStyle(color: lt_grey_text, fontWeight: FontWeight.bold)
-    ),
+        bodyText1: TextStyle(color: Colors.black),
+        bodyText2: TextStyle(color: lt_grey_text),
+        subtitle1: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        subtitle2: TextStyle(color: lt_grey_text, fontWeight: FontWeight.bold)
+        ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: Colors.white, selectedItemColor: lt_blue),
     tabBarTheme: TabBarTheme(
@@ -30,14 +29,16 @@ final brightTheme = ThemeData(
       indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(50), color: lt_blue),
     ),
-    appBarTheme: AppBarTheme(
-      backgroundColor: Colors.white
-    )
-    );
+    appBarTheme: AppBarTheme(backgroundColor: Colors.white),
+    textButtonTheme: TextButtonThemeData(
+        style: ButtonStyle(
+      overlayColor:
+          MaterialStateColor.resolveWith((states) => lt_green.withOpacity(0.1)),
+    )));
 
 ///
 /// dark theme colors
-/// 
+///
 const Color dt_blue = Color.fromRGBO(33, 34, 44, 1);
 const Color dt_dark_blue = Color.fromRGBO(26, 26, 32, 1);
 const Color dt_green = Color.fromRGBO(106, 218, 111, 1);
@@ -48,23 +49,23 @@ final darkTheme = ThemeData(
     scaffoldBackgroundColor: dt_blue,
     buttonColor: dt_green,
     primaryColor: Colors.white,
-    
     textTheme: TextTheme(
-      bodyText1: TextStyle(color: Colors.white),
-      bodyText2: TextStyle(color: lt_grey_text),
-      subtitle1: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)
-    ),
+        bodyText1: TextStyle(color: Colors.white),
+        bodyText2: TextStyle(color: lt_grey_text),
+        subtitle1: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)
+        ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: dt_blue,
         selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.grey
-        ),
+        unselectedItemColor: Colors.grey),
     tabBarTheme: TabBarTheme(
       unselectedLabelColor: lt_grey_text,
       indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(50), color: dt_green),
     ),
-      appBarTheme: AppBarTheme(
-      backgroundColor: dt_blue
-    ),
-    );
+    appBarTheme: AppBarTheme(backgroundColor: dt_blue),
+    textButtonTheme: TextButtonThemeData(
+        style: ButtonStyle(
+      overlayColor:
+          MaterialStateColor.resolveWith((states) => lt_green.withOpacity(0.1)),
+    )));
