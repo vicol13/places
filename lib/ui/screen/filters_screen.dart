@@ -2,6 +2,7 @@ import 'package:cupertino_range_slider/cupertino_range_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/domain/sight_type.dart';
+import 'package:places/ui/screen/res/svgs.dart';
 import 'package:places/ui/screen/widgets/filter_card.dart';
 import 'dart:math' as Math;
 import '../../mocks.dart' as mockdata;
@@ -63,7 +64,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                         Theme.of(context).primaryColor.withOpacity(0.1))),
                 onPressed: _backButtonCallback,
                 child: SvgPicture.asset(
-                  'res/assets/arrow_of_back_button.svg',
+                  LEFT_ARROW,
                   color: Theme.of(context).primaryColor,
                   height: 20,
                   width: 20,
@@ -104,8 +105,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       onTap: () {
                         _switchFilterState(SightType.HOTEL);
                       },
-                      icon: SvgPicture.asset(
-                          'res/assets/filters_icons/hotel.svg',
+                      icon: SvgPicture.asset(HOTEL,
                           color: Theme.of(context).buttonColor),
                       isSelected: selectedFilterMap[SightType.HOTEL],
                       type: SightType.HOTEL.toUiString(),
@@ -115,8 +115,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       onTap: () {
                         _switchFilterState(SightType.RESTAURANT);
                       },
-                      icon: SvgPicture.asset(
-                          'res/assets/filters_icons/restaurant.svg',
+                      icon: SvgPicture.asset(RESTAURANT,
                           color: Theme.of(context).buttonColor),
                       isSelected: selectedFilterMap[SightType.RESTAURANT],
                       type: SightType.RESTAURANT.toUiString(),
@@ -126,8 +125,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       onTap: () {
                         _switchFilterState(SightType.SPECIAL_PLACE);
                       },
-                      icon: SvgPicture.asset(
-                          'res/assets/filters_icons/special.svg',
+                      icon: SvgPicture.asset(STAR,
                           color: Theme.of(context).buttonColor),
                       isSelected: selectedFilterMap[SightType.SPECIAL_PLACE],
                       type: SightType.SPECIAL_PLACE.toUiString(),
@@ -137,8 +135,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       onTap: () {
                         _switchFilterState(SightType.PARK);
                       },
-                      icon: SvgPicture.asset(
-                          'res/assets/filters_icons/tree.svg',
+                      icon: SvgPicture.asset(TREE,
                           color: Theme.of(context).buttonColor),
                       isSelected: selectedFilterMap[SightType.PARK],
                       type: SightType.MUSEUM.toUiString(),
@@ -148,8 +145,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       onTap: () {
                         _switchFilterState(SightType.MUSEUM);
                       },
-                      icon: SvgPicture.asset(
-                          'res/assets/filters_icons/museum.svg',
+                      icon: SvgPicture.asset(MUSEUM,
                           color: Theme.of(context).buttonColor),
                       isSelected: selectedFilterMap[SightType.MUSEUM],
                       type: SightType.MUSEUM.toUiString(),
@@ -159,8 +155,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       onTap: () {
                         _switchFilterState(SightType.COFFE);
                       },
-                      icon: SvgPicture.asset(
-                          'res/assets/filters_icons/cafe.svg',
+                      icon: SvgPicture.asset(CAFFE,
                           color: Theme.of(context).buttonColor),
                       isSelected: selectedFilterMap[SightType.COFFE],
                       type: SightType.COFFE.toUiString(),

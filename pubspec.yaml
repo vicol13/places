@@ -23,11 +23,12 @@ flutter:
   uses-material-design: true
   assets:
     - res/
-    - res/assets/
-    - res/assets/filters_icons/
-    - res/assets/bottom_navigation/
+    - res/assets/svg/
+    - res/assets/fonts/
+    - res/assets/svg/filters_icons/
+    - res/assets/svg/bottom_navigation/
   fonts:
     - family : Roboto
       fonts:
-        - asset: res/Roboto-Regular.ttf
+        - asset: res/assets/fonts/Roboto-Regular.ttf
 

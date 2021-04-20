@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/ui/screen/res/svgs.dart';
 import 'sight_card.dart';
 import 'package:places/domain/sight_type.dart';
 
@@ -69,7 +70,7 @@ class VisitedSightCard extends StatelessWidget {
                     child: Container(
                       width: 30,
                       height: 30,
-                      child: SvgPicture.asset('res/assets/share.svg',
+                      child: SvgPicture.asset(SHARE,
                           color: Colors.white),
                     ),
                   ),
@@ -85,7 +86,7 @@ class VisitedSightCard extends StatelessWidget {
                     child: Container(
                       width: 30,
                       height: 30,
-                      child: SvgPicture.asset('res/assets/remove.svg',
+                      child: SvgPicture.asset(CLEAR,
                           color: Colors.white),
                     ),
                   )

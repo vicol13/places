@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/domain/sight_type.dart';
+import 'package:places/ui/screen/res/svgs.dart';
 import 'package:places/ui/screen/sight_categories_screen.dart';
 import 'package:places/ui/screen/widgets/text_field_with_clear_btn.dart';
 import '../../mocks.dart' as mockdata;
@@ -88,6 +89,7 @@ class _AddSightScreenState extends State<AddSightScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           _categoryText(this._type),
+
                           ///
                           /// navigate btn to pick type screen
                           ///
@@ -95,7 +97,7 @@ class _AddSightScreenState extends State<AddSightScreen> {
                               child: TextButton(
                                   onPressed: _awaitCategory,
                                   child: SvgPicture.asset(
-                                    "res/assets/view.svg",
+                                    RIGHT_ARROW,
                                     color: Theme.of(context).primaryColor,
                                     height: 30,
                                     width: 30,
@@ -109,6 +111,7 @@ class _AddSightScreenState extends State<AddSightScreen> {
                 SizedBox(
                   height: 20,
                 ),
+
                 ///
                 /// Name input field
                 ///
@@ -136,6 +139,7 @@ class _AddSightScreenState extends State<AddSightScreen> {
                   },
                 )),
                 SizedBox(width: 20),
+
                 ///
                 /// long input field
                 ///
@@ -152,6 +156,7 @@ class _AddSightScreenState extends State<AddSightScreen> {
               SizedBox(
                 height: 10,
               ),
+
               ///
               /// pick on map button
               ///
@@ -175,6 +180,7 @@ class _AddSightScreenState extends State<AddSightScreen> {
                 ),
               ),
               SizedBox(height: 30),
+
               ///
               /// description text input
               ///
@@ -285,4 +291,3 @@ class _AddSightScreenState extends State<AddSightScreen> {
     Navigator.of(context).pop();
   }
 }
-

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/domain/sight_type.dart';
+import 'package:places/ui/screen/res/svgs.dart';
 
 ///
 /// this scren is used for picking a SightType
@@ -37,7 +38,7 @@ class _SightTypesScreenState extends State<SightTypesScreen> {
           leading: TextButton(
             onPressed: _navigateBack,
             child: SvgPicture.asset(
-              "res/assets/arrow_of_back_button.svg",
+              LEFT_ARROW,
               color: Theme.of(context).primaryColor,
               height: 20,
               width: 20,
@@ -150,7 +151,7 @@ class _SightFilterListCard extends StatelessWidget {
                 ? Container(
                     padding: EdgeInsets.only(right: 15),
                     child: SvgPicture.asset(
-                      "res/assets/done.svg",
+                      RIGHT_ARROW,
                       color: Theme.of(context).buttonColor,
                       height: 10,
                       width: 10,

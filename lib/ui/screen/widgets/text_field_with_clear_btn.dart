@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:places/ui/screen/res/svgs.dart';
 
 ///
 /// custom input text field
@@ -88,7 +89,7 @@ class _TextInputWithClearButton extends State<TextInputWithClearButton> {
           setState(() {});
         },
         child: SvgPicture.asset(
-          'res/assets/text_field_clean_icon.svg',
+          CLEAR_WITH_OUTLINE,
           color: Theme.of(context).primaryColor,
         ));
   }

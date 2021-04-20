@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/domain/sight.dart';
-import 'package:places/ui/widgets/network_image.dart';
+import 'package:places/ui/screen/res/svgs.dart';
+import 'package:places/ui/screen/widgets/network_image.dart';
 import 'package:places/domain/sight_type.dart';
 
 ///
@@ -57,8 +58,7 @@ class SightDetails extends StatelessWidget {
                           child: Container(
                               height: 20,
                               width: 20,
-                              child: SvgPicture.asset(
-                                  'res/assets/arrow_of_back_button.svg',
+                              child: SvgPicture.asset(LEFT_ARROW,
                                   color: Theme.of(context).primaryColor))),
                     ),
                   ),
@@ -137,7 +137,7 @@ class SightDetails extends StatelessWidget {
                               height: 25,
                               width: 25,
                               child: SvgPicture.asset(
-                                'res/assets/route.svg',
+                                ROUTE,
                                 color: Colors.white,
                                 fit: BoxFit.fill,
                               ),
@@ -181,7 +181,7 @@ class SightDetails extends StatelessWidget {
                                     height: 30,
                                     width: 30,
                                     child: SvgPicture.asset(
-                                      'res/assets/calendar.svg',
+                                      CALENDAR,
                                       color: Theme.of(context)
                                           .textTheme
                                           .bodyText2
@@ -217,7 +217,7 @@ class SightDetails extends StatelessWidget {
                                   height: 30,
                                   width: 30,
                                   child: SvgPicture.asset(
-                                    'res/assets/h2.svg',
+                                    HEART,
                                     color: Theme.of(context).primaryColor,
                                     fit: BoxFit.fitWidth,
                                     height: 30,

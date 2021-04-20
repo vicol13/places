@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/ui/screen/add_sight_screen.dart';
+import 'package:places/ui/screen/res/svgs.dart';
 import 'package:places/ui/screen/widgets/sight_card.dart';
 import 'package:places/ui/screen/sight_detailed_screen.dart';
-import '../widgets/styled_title.dart';
+import 'widgets/styled_title.dart';
 import '../../mocks.dart' as mockdata;
 import 'filters_screen.dart';
 
@@ -75,7 +76,7 @@ class _State extends State<SightListScreen> {
                     width: 15,
                   ),
                   SvgPicture.asset(
-                    'res/assets/plus.svg',
+                    PLUS,
                     color: Colors.white,
                   ),
                   SizedBox(
