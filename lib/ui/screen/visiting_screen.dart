@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:places/ui/screen/visited_sight_card.dart';
+import 'package:places/ui/screen/widgets/visited_sight_card.dart';
+import 'package:places/ui/screen/widgets/want_to_visit_sight_card.dart';
 import '../../mocks.dart' as mockdata;
 
 
@@ -44,11 +45,11 @@ class VisitingScreen extends StatelessWidget {
                 padding: EdgeInsets.only(top: 30),
                 child: Column(
                   children: [
-                    VisitedSightCard(sight: mockdata.mocks[6]),
+                    WantToVisitSightCard(sight: mockdata.mocks[6]),
                     SizedBox(
                       height: 30,
                     ),
-                    VisitedSightCard(sight: mockdata.mocks[7]),
+                    WantToVisitSightCard(sight: mockdata.mocks[7]),
                   ],
                 ),
               ),
