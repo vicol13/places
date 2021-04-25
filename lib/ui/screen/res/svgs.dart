@@ -17,3 +17,5 @@ const PLUS = 'res/assets/svg/plus.svg';
 const LIST = 'res/assets/svg/bottom_navigation/list.svg';
 const MAP = 'res/assets/svg/bottom_navigation/map.svg';
 const SETTINGS = 'res/assets/svg/bottom_navigation/settings.svg';
+const SEARCH = 'res/assets/svg/search.svg';
+const FILTERS = 'res/assets/svg/filter.svg';
