@@ -11,11 +11,15 @@ import 'package:places/domain/sight_type.dart';
 ///
 class WantToVisitSightCard extends StatelessWidget {
   final Sight sight;
-  const WantToVisitSightCard({this.sight});
+  final VoidCallback onDelete;
+  
+  const WantToVisitSightCard({this.sight, this.onDelete, Key key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      
       padding: EdgeInsets.only(left: 15, right: 15),
       child: AspectRatio(
         aspectRatio: 3 / 2,
@@ -45,7 +49,6 @@ class WantToVisitSightCard extends StatelessWidget {
                   )),
                 ],
               ),
-
               ///
               /// ripple
               ///
@@ -76,16 +79,13 @@ class WantToVisitSightCard extends StatelessWidget {
                           color: Colors.white.withOpacity(1)),
                     ),
                   ),
-
                   ///
                   /// remove button
                   ///
                   MaterialButton(
                     height: 40,
                     minWidth: 40,
-                    onPressed: () {
-                      print("remove callback");
-                    },
+                    onPressed: onDelete,
                     child: Container(
                       width: 30,
                       height: 30,
