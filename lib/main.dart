@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/provider/theme_provider.dart';
 import 'package:places/ui/screen/filters_screen.dart';
+import 'package:places/ui/screen/res/svgs.dart';
 import 'package:places/ui/screen/res/themes.dart';
 import 'package:places/ui/screen/settings_screen.dart';
 import 'package:places/ui/screen/sight_list_screen.dart';
@@ -13,13 +14,15 @@ void main() {
       child: App(), create: (context) => ThemeProvider()));
 }
 
-
 class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return Consumer<ThemeProvider>(builder: (ctx, provider, child) {
-      return MaterialApp(title: 'Places', theme: provider.isDarkTheme ? darkTheme: brightTheme, home: MainScreen());
+      return MaterialApp(
+          title: 'Places',
+          theme: provider.isDarkTheme ? darkTheme : brightTheme,
+          home: MainScreen());
     });
   }
 }
@@ -62,20 +65,20 @@ class _MainScreen extends State<MainScreen>
         },
         items: [
           BottomNavigationBarItem(
-              icon: SvgPicture.asset('res/assets/bottom_navigation/list.svg',
-                  color: Theme.of(context).primaryColor),
+              icon:
+                  SvgPicture.asset(LIST, color: Theme.of(context).primaryColor),
               label: ""),
           BottomNavigationBarItem(
               backgroundColor: Colors.red,
-              icon: SvgPicture.asset('res/assets/bottom_navigation/map.svg',
+              icon:
+                  SvgPicture.asset(MAP, color: Theme.of(context).primaryColor),
+              label: ""),
+          BottomNavigationBarItem(
+              icon: SvgPicture.asset(HEART,
                   color: Theme.of(context).primaryColor),
               label: ""),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset('res/assets/bottom_navigation/heart.svg',
-                  color: Theme.of(context).primaryColor),
-              label: ""),
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset('res/assets/bottom_navigation/settings.svg',
+              icon: SvgPicture.asset(SETTINGS,
                   color: Theme.of(context).primaryColor),
               label: ""),
         ],

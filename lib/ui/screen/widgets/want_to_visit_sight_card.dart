@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/domain/sight.dart';
-import 'package:places/ui/widgets/network_image.dart';
+import 'package:places/ui/screen/res/svgs.dart';
+import 'package:places/ui/screen/widgets/network_image.dart';
 import 'sight_card.dart';
 import 'package:places/domain/sight_type.dart';
 
@@ -22,30 +23,33 @@ class WantToVisitSightCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           child: Stack(
             alignment: Alignment.topRight,
-                      children:[ Column(
-              children: [
-                ///
-                /// card header (same as default card)
-                ///
-                Expanded(
-                    child: SightCardHeader(
-                  sightType: this.sight.type.toUiString(),
-                  sightUrl: this.sight.url,
-                )),
-                ///
-                /// card body (same as default card)
-                /// 
-                Expanded(
-                    child: SightCardBody(
-                  sightDetails: this.sight.details,
-                  sightName: this.sight.name,
-                )),
-              ],
-            ),
-            ///
-            /// ripple
-            ///
-            Material(
+            children: [
+              Column(
+                children: [
+                  ///
+                  /// card header (same as default card)
+                  ///
+                  Expanded(
+                      child: SightCardHeader(
+                    sightType: this.sight.type.toUiString(),
+                    sightUrl: this.sight.url,
+                  )),
+
+                  ///
+                  /// card body (same as default card)
+                  ///
+                  Expanded(
+                      child: SightCardBody(
+                    sightDetails: this.sight.details,
+                    sightName: this.sight.name,
+                  )),
+                ],
+              ),
+
+              ///
+              /// ripple
+              ///
+              Material(
                 type: MaterialType.transparency,
                 child: InkWell(
                   onTap: () {
@@ -53,15 +57,13 @@ class WantToVisitSightCard extends StatelessWidget {
                   },
                 ),
               ),
-            Padding(
+              Padding(
                 padding: EdgeInsets.only(right: 5, top: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children:[ 
-                    ///
-                    /// schedule place button
-                    ///
-                    MaterialButton(
+                child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                  ///
+                  /// schedule place button
+                  ///
+                  MaterialButton(
                     height: 40,
                     minWidth: 40,
                     onPressed: () {
@@ -70,10 +72,11 @@ class WantToVisitSightCard extends StatelessWidget {
                     child: Container(
                       width: 30,
                       height: 30,
-                      child: SvgPicture.asset('res/assets/calendar.svg',
+                      child: SvgPicture.asset(CALENDAR,
                           color: Colors.white.withOpacity(1)),
                     ),
                   ),
+
                   ///
                   /// remove button
                   ///
@@ -86,13 +89,10 @@ class WantToVisitSightCard extends StatelessWidget {
                     child: Container(
                       width: 30,
                       height: 30,
-                      child: SvgPicture.asset('res/assets/remove.svg',
-                          color: Colors.white),
+                      child: SvgPicture.asset(CLEAR, color: Colors.white),
                     ),
                   )
-                  
-                  ]
-                ),
+                ]),
               )
             ],
           ),

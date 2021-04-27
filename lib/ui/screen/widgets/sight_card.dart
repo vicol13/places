@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/domain/sight.dart';
-import 'package:places/ui/widgets/network_image.dart';
+import 'package:places/ui/screen/res/svgs.dart';
+import 'package:places/ui/screen/widgets/network_image.dart';
 import 'package:places/domain/sight_type.dart';
 
 ///
@@ -44,8 +45,9 @@ class SightCard extends StatelessWidget {
                   ),
                 ],
               ),
+
               ///
-              /// ripple 
+              /// ripple
               ///
               Material(
                 type: MaterialType.transparency,
@@ -55,6 +57,7 @@ class SightCard extends StatelessWidget {
                   },
                 ),
               ),
+
               ///
               /// want to visit button
               ///
@@ -69,7 +72,8 @@ class SightCard extends StatelessWidget {
                   child: Container(
                     width: 30,
                     height: 30,
-                    child: SvgPicture.asset('res/assets/heart.svg',color: Colors.white),),
+                    child: SvgPicture.asset(HEART, color: Colors.white),
+                  ),
                 ),
               )
             ]),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:places/ui/screen/res/svgs.dart';
 
 
 ///
@@ -85,7 +86,7 @@ class FilterCard extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5),
                 child: SvgPicture.asset(
-                  'res/assets/done.svg',
+                  DONE,
                   color: Theme.of(context).backgroundColor,
                 ),
               ),

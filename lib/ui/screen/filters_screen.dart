@@ -2,6 +2,8 @@ import 'package:cupertino_range_slider/cupertino_range_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/domain/sight_type.dart';
+import 'package:places/serivce/search_service.dart';
+import 'package:places/ui/screen/res/svgs.dart';
 import 'package:places/ui/screen/widgets/filter_card.dart';
 import 'dart:math' as Math;
 import '../../mocks.dart' as mockdata;
@@ -24,8 +26,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
     SightType.COFFE: false
   };
 
-  double _minKmRange = 100;
-  double _maxKmRange = 10000;
+  SearchService service = SearchService.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +34,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
         appBar: AppBar(
             elevation: 0,
             centerTitle: false,
+            automaticallyImplyLeading: false,
             actions: [
               //
               //  clear filter button
@@ -61,9 +63,11 @@ class _FiltersScreenState extends State<FiltersScreen> {
                 style: ButtonStyle(
                     overlayColor: MaterialStateColor.resolveWith((states) =>
                         Theme.of(context).primaryColor.withOpacity(0.1))),
-                onPressed: _backButtonCallback,
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
                 child: SvgPicture.asset(
-                  'res/assets/arrow_of_back_button.svg',
+                  LEFT_ARROW,
                   color: Theme.of(context).primaryColor,
                   height: 20,
                   width: 20,
@@ -104,8 +108,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       onTap: () {
                         _switchFilterState(SightType.HOTEL);
                       },
-                      icon: SvgPicture.asset(
-                          'res/assets/filters_icons/hotel.svg',
+                      icon: SvgPicture.asset(HOTEL,
                           color: Theme.of(context).buttonColor),
                       isSelected: selectedFilterMap[SightType.HOTEL],
                       type: SightType.HOTEL.toUiString(),
@@ -115,8 +118,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       onTap: () {
                         _switchFilterState(SightType.RESTAURANT);
                       },
-                      icon: SvgPicture.asset(
-                          'res/assets/filters_icons/restaurant.svg',
+                      icon: SvgPicture.asset(RESTAURANT,
                           color: Theme.of(context).buttonColor),
                       isSelected: selectedFilterMap[SightType.RESTAURANT],
                       type: SightType.RESTAURANT.toUiString(),
@@ -126,8 +128,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       onTap: () {
                         _switchFilterState(SightType.SPECIAL_PLACE);
                       },
-                      icon: SvgPicture.asset(
-                          'res/assets/filters_icons/special.svg',
+                      icon: SvgPicture.asset(STAR,
                           color: Theme.of(context).buttonColor),
                       isSelected: selectedFilterMap[SightType.SPECIAL_PLACE],
                       type: SightType.SPECIAL_PLACE.toUiString(),
@@ -137,8 +138,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       onTap: () {
                         _switchFilterState(SightType.PARK);
                       },
-                      icon: SvgPicture.asset(
-                          'res/assets/filters_icons/tree.svg',
+                      icon: SvgPicture.asset(TREE,
                           color: Theme.of(context).buttonColor),
                       isSelected: selectedFilterMap[SightType.PARK],
                       type: SightType.MUSEUM.toUiString(),
@@ -148,8 +148,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       onTap: () {
                         _switchFilterState(SightType.MUSEUM);
                       },
-                      icon: SvgPicture.asset(
-                          'res/assets/filters_icons/museum.svg',
+                      icon: SvgPicture.asset(MUSEUM,
                           color: Theme.of(context).buttonColor),
                       isSelected: selectedFilterMap[SightType.MUSEUM],
                       type: SightType.MUSEUM.toUiString(),
@@ -159,8 +158,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       onTap: () {
                         _switchFilterState(SightType.COFFE);
                       },
-                      icon: SvgPicture.asset(
-                          'res/assets/filters_icons/cafe.svg',
+                      icon: SvgPicture.asset(CAFFE,
                           color: Theme.of(context).buttonColor),
                       isSelected: selectedFilterMap[SightType.COFFE],
                       type: SightType.COFFE.toUiString(),
@@ -181,7 +179,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                         color: Theme.of(context).primaryColor, fontSize: 18),
                   ),
                   Text(
-                      "from ${this._minKmRange.round()} to ${this._maxKmRange.round()} km",
+                      "from ${this.service.minKmRangeValue.round()} to ${this.service.maxKmRangeValue.round()} km",
                       style: Theme.of(context)
                           .textTheme
                           .bodyText2
@@ -197,16 +195,17 @@ class _FiltersScreenState extends State<FiltersScreen> {
                 child: CupertinoRangeSlider(
                   max: 10000,
                   min: 99,
-                  maxValue: _maxKmRange,
-                  minValue: _minKmRange,
+                  maxValue: service.maxKmRangeValue,
+                  minValue: service.minKmRangeValue,
                   onMaxChanged: (newValue) {
                     setState(() {
-                      this._maxKmRange = newValue;
+                      // this._maxKmRange = newValue;
+                      service.maxKmRange = newValue;
                     });
                   },
                   onMinChanged: (newValue) {
                     setState(() {
-                      this._minKmRange = newValue;
+                      service.minKmRange = newValue;
                     });
                   },
                   activeColor: Theme.of(context).buttonColor,
@@ -249,13 +248,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
       selectedFilterMap[SightType.PARK] = false;
       selectedFilterMap[SightType.SPECIAL_PLACE] = false;
       selectedFilterMap[SightType.RESTAURANT] = false;
-      _maxKmRange = 10000;
-      _minKmRange = 100;
+      service.maxKmRange = 10000;
+      service.minKmRange = 100;
     });
-  }
-
-  void _backButtonCallback() {
-    print("back button callback");
   }
 
   ///
@@ -277,23 +272,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
 
     return mockdata.mocks
         .where((it) => selectedFilters.containsKey(it.type))
-        .where((it) =>
-            this._minKmRange.round() < getDistance(it.lat, it.lon) &&
-            this._maxKmRange.round() > getDistance(it.lat, it.lon))
+        .where((it) => service.isMatchingRangeFilter(it))
         .length;
-  }
-
-  int getDistance(double sightLT, double sightLg) {
-    ///
-    /// my position hardcoded for now
-    ///
-    var curentLt = 47.026878818161634;
-    var currentLg = 28.840820869198012;
-
-    var ky = 40000 / 360;
-    var kx = Math.cos(Math.pi * curentLt / 180.0) * ky;
-    var dx = (currentLg - sightLg).abs() * kx;
-    var dy = (curentLt - curentLt).abs() * ky;
-    return Math.sqrt((dx * dx + dy * dy)).round();
   }
 }
