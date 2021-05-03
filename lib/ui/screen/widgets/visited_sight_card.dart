@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/ui/screen/res/svgs.dart';
 import 'sight_card.dart';
 import 'package:places/domain/sight_type.dart';
 
@@ -9,7 +10,10 @@ import 'package:places/domain/sight_type.dart';
 ///
 class VisitedSightCard extends StatelessWidget {
   final Sight sight;
-  const VisitedSightCard({this.sight});
+  final VoidCallback onDelete;
+  
+  const VisitedSightCard({this.sight, this.onDelete, Key key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,30 +25,31 @@ class VisitedSightCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           child: Stack(
             alignment: Alignment.topRight,
-                      children:[ Column(
-              children: [
-                ///
-                /// card header (same as default card)
-                ///
-                Expanded(
-                    child: SightCardHeader(
-                  sightType: this.sight.type.toUiString(),
-                  sightUrl: this.sight.url,
-                )),
-                ///
-                /// card body (same as default card)
-                /// 
-                Expanded(
-                    child: SightCardBody(
-                  sightDetails: this.sight.details,
-                  sightName: this.sight.name,
-                )),
-              ],
-            ),
-            ///
-            /// ripple
-            ///
-            Material(
+            children: [
+              Column(
+                children: [
+                  ///
+                  /// card header (same as default card)
+                  ///
+                  Expanded(
+                      child: SightCardHeader(
+                    sightType: this.sight.type.toUiString(),
+                    sightUrl: this.sight.url,
+                  )),
+                  ///
+                  /// card body (same as default card)
+                  ///
+                  Expanded(
+                      child: SightCardBody(
+                    sightDetails: this.sight.details,
+                    sightName: this.sight.name,
+                  )),
+                ],
+              ),
+              ///
+              /// ripple
+              ///
+              Material(
                 type: MaterialType.transparency,
                 child: InkWell(
                   onTap: () {
@@ -52,15 +57,13 @@ class VisitedSightCard extends StatelessWidget {
                   },
                 ),
               ),
-            Padding(
+              Padding(
                 padding: EdgeInsets.only(right: 5, top: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children:[ 
-                    ///
-                    /// share place button
-                    ///
-                    MaterialButton(
+                child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                  ///
+                  /// share place button
+                  ///
+                  MaterialButton(
                     height: 40,
                     minWidth: 40,
                     onPressed: () {
@@ -69,8 +72,7 @@ class VisitedSightCard extends StatelessWidget {
                     child: Container(
                       width: 30,
                       height: 30,
-                      child: SvgPicture.asset('res/assets/share.svg',
-                          color: Colors.white),
+                      child: SvgPicture.asset(SHARE, color: Colors.white),
                     ),
                   ),
                   ///
@@ -79,19 +81,14 @@ class VisitedSightCard extends StatelessWidget {
                   MaterialButton(
                     height: 40,
                     minWidth: 40,
-                    onPressed: () {
-                      print("remove callback");
-                    },
+                    onPressed: onDelete,
                     child: Container(
                       width: 30,
                       height: 30,
-                      child: SvgPicture.asset('res/assets/remove.svg',
-                          color: Colors.white),
+                      child: SvgPicture.asset(CLEAR, color: Colors.white),
                     ),
                   )
-                  
-                  ]
-                ),
+                ]),
               )
             ],
           ),
