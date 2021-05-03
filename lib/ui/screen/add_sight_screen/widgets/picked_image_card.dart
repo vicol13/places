@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:places/ui/screen/res/svgs.dart';
 
 ///
-///
+/// small card which stands for images picked from user gallery
 ///
 class PickedImageCard extends StatelessWidget {
   String imageurl;
@@ -42,21 +42,22 @@ class PickedImageCard extends StatelessWidget {
             //
             // remove button
             //
-            InkWell(
-              // should the same thing as onDismissed
-              onTap: onDismissed,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: Container(
-                  padding: EdgeInsets.only(right: 5, top: 5),
-                  // width: 3,
-                  // height: 3,
+            Material(
+              type: MaterialType.transparency,
+              child: InkWell(
+                // should the same thing as onDismissed
+                onTap: onDismissed,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
                   child: Container(
-                    child: SvgPicture.asset(
-                      CLEAR_WITH_OUTLINE,
-                      height: 17,
-                      width: 17,
-                      color: Theme.of(ctx).backgroundColor,
+                    padding: EdgeInsets.only(right: 5, top: 5),
+                    child: Container(
+                      child: SvgPicture.asset(
+                        CLEAR_WITH_OUTLINE,
+                        height: 17,
+                        width: 17,
+                        color: Theme.of(ctx).backgroundColor,
+                      ),
                     ),
                   ),
                 ),

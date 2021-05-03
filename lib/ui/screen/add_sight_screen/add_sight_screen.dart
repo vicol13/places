@@ -1,15 +1,10 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/domain/sight_type.dart';
-import 'package:places/main.dart';
-import 'package:places/ui/screen/add_sight_screen/widgets/add_photo_button.dart';
-import 'package:places/ui/screen/add_sight_screen/widgets/picked_image_card.dart';
+import 'package:places/ui/screen/add_sight_screen/widgets/picked_image_list.dart';
 import 'package:places/ui/screen/res/svgs.dart';
 import 'package:places/ui/screen/sight_categories_screen.dart';
-import 'package:places/ui/screen/widgets/network_image.dart';
 import 'package:places/ui/screen/widgets/text_field_with_clear_btn.dart';
 import '../../../mocks.dart' as mockdata;
 
@@ -44,7 +39,6 @@ class _AddSightScreenState extends State<AddSightScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // images.add("https://source.unsplash.com/random");
     return Scaffold(
       ///
       /// AppBar
@@ -81,41 +75,10 @@ class _AddSightScreenState extends State<AddSightScreen> {
           child: Column(
             children: [
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Container(
-                  height: 70,
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          AddPhotoButton(
-                            onTap: () {
-                              print("add");
-                              setState(() {
-                                if (Random().nextBool()) {
-                                  images.add("https://picsum.photos/300/300");
-                                } else {
-                                  images.add(
-                                      "https://source.unsplash.com/random");
-                                }
-                              });
-                              print(images);
-                            },
-                          ),
-                          for (int i = 0; i <= images.length - 1; i++)
-                            PickedImageCard(
-                              imageurl: images[i],
-                              key: UniqueKey(),
-                              onDismissed: () {
-                                setState(() {
-                                  images.removeAt(i);
-                                });
-                              },
-                            )
-                        ]),
-                  ),
-                ),
-
+                ///
+                /// picked images list
+                ///
+                PhotoListView(images: images),
                 ///
                 /// Category pick
                 ///
@@ -134,7 +97,6 @@ class _AddSightScreenState extends State<AddSightScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           _categoryText(this._type),
-
                           ///
                           /// navigate btn to pick type screen
                           ///

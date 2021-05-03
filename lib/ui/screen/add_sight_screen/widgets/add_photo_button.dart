@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:places/ui/screen/res/svgs.dart';
 
 ///
-///
+/// button for adding photos whene adding a sight
 ///
 class AddPhotoButton extends StatelessWidget {
   final VoidCallback onTap;
@@ -14,14 +14,15 @@ class AddPhotoButton extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(15),
       child: Material(
+        type: MaterialType.transparency,
         child: InkWell(
           onTap: onTap,
           child: Container(
             height: 60,
             width: 60,
-            // color: Colors.red,
             alignment: Alignment.center,
             decoration: BoxDecoration(
+                color: Theme.of(context).backgroundColor,
                 borderRadius: BorderRadius.circular(15),
                 border: Border.all(color: Theme.of(context).buttonColor)),
             child: SvgPicture.asset(
@@ -36,4 +37,3 @@ class AddPhotoButton extends StatelessWidget {
     );
   }
 }
-
