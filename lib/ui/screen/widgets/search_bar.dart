@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:places/ui/screen/filters_screen.dart';
 import 'package:places/ui/screen/res/svgs.dart';
 
 ///
@@ -78,7 +77,7 @@ class _SearchBarState extends State<SearchBar> {
     // here, and remember to do it before the super call, as
     // per official documentation:
     // https://api.flutter.dev/flutter/widgets/TextEditingController-class.html
-    this.widget.textEditingController.dispose();
+    this.widget?.textEditingController?.dispose();
     super.dispose();
   }
 

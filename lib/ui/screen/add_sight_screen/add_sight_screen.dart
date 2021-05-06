@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/domain/sight_type.dart';
+import 'package:places/ui/screen/add_sight_screen/widgets/picked_image_list.dart';
 import 'package:places/ui/screen/res/svgs.dart';
 import 'package:places/ui/screen/sight_categories_screen.dart';
 import 'package:places/ui/screen/widgets/text_field_with_clear_btn.dart';
-import '../../mocks.dart' as mockdata;
+import '../../../mocks.dart' as mockdata;
 
 ///
 /// Screen for adding sight
@@ -32,6 +33,9 @@ class _AddSightScreenState extends State<AddSightScreen> {
   FocusNode _descriptionFocus = FocusNode();
 
   SightType _type;
+
+  //
+  List<String> images = [];
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +76,10 @@ class _AddSightScreenState extends State<AddSightScreen> {
             children: [
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 ///
+                /// picked images list
+                ///
+                PhotoListView(images: images),
+                ///
                 /// Category pick
                 ///
                 Container(
@@ -89,7 +97,6 @@ class _AddSightScreenState extends State<AddSightScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           _categoryText(this._type),
-
                           ///
                           /// navigate btn to pick type screen
                           ///
@@ -291,3 +298,4 @@ class _AddSightScreenState extends State<AddSightScreen> {
     Navigator.of(context).pop();
   }
 }
+

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:places/ui/screen/add_sight_screen.dart';
 import 'package:places/ui/screen/res/svgs.dart';
 import 'package:places/ui/screen/search_screen/search_screen.dart';
 import 'package:places/ui/screen/widgets/search_bar.dart';
 import 'package:places/ui/screen/widgets/sight_card.dart';
+import 'add_sight_screen/add_sight_screen.dart';
 import 'widgets/styled_title.dart';
 import '../../mocks.dart' as mockdata;
 import 'filters_screen.dart';

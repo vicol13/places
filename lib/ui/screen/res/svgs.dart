@@ -20,3 +20,4 @@ const SETTINGS = 'res/assets/svg/bottom_navigation/settings.svg';
 const SEARCH = 'res/assets/svg/search.svg';
 const FILTERS = 'res/assets/svg/filter.svg';
 const PHOTO = 'res/assets/svg/photo.svg';
+const DELETE = 'res/assets/svg/delete.svg';

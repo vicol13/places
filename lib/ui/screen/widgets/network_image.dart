@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+
 ///
 /// represet image from netwrok wich display loading indicator
 ///
@@ -29,9 +30,12 @@ class NetworkImageWithLoader extends StatelessWidget {
             ? loadingProgress.cumulativeBytesLoaded /
                 loadingProgress.expectedTotalBytes
             : null;
-        return Center(
-            child: CupertinoActivityIndicator.partiallyRevealed(
-                progress: progress));
+        return Container(
+          color: Colors.white,
+          child: Center(
+              child: CupertinoActivityIndicator.partiallyRevealed(
+                  progress: progress)),
+        );
       },
     );
   }
