@@ -17,7 +17,7 @@ class SightCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       child: Container(
-        padding: EdgeInsets.only(left: 15, right: 15),
+        padding: EdgeInsets.only(left: 15, right: 15,top: 30),
         child: AspectRatio(
           aspectRatio: 3 / 2,
           child: ClipRRect(
