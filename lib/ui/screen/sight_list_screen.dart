@@ -6,7 +6,7 @@ import 'package:places/ui/screen/widgets/search_bar.dart';
 import 'package:places/ui/screen/widgets/sight_card.dart';
 import 'add_sight_screen/add_sight_screen.dart';
 import 'widgets/styled_title.dart';
-import '../../mocks.dart' as mockdata;
+import '../../mocks.dart';
 import 'filters_screen.dart';
 
 class SightListScreen extends StatefulWidget {
@@ -17,7 +17,6 @@ class SightListScreen extends StatefulWidget {
 class _State extends State<SightListScreen> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(120),
@@ -39,18 +38,15 @@ class _State extends State<SightListScreen> {
               /// sufix icon in search bar [filter button]
               ///
               sufix: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => FiltersScreen()),
-                  );
-                },
-                child: Container(
-                    child: SvgPicture.asset(
-                  FILTERS,
-                  color: Theme.of(context).buttonColor,
-                )),
-              ),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => FiltersScreen()));
+                  },
+                  child: Container(
+                      child: SvgPicture.asset(FILTERS,
+                          color: Theme.of(context).buttonColor))),
             ),
           ),
           title: Column(
@@ -60,25 +56,10 @@ class _State extends State<SightListScreen> {
       ),
       body: Stack(alignment: Alignment.bottomCenter, children: [
         Center(
-          child: SingleChildScrollView(
-            child: Column(children: [
-              SizedBox(
-                height: 30,
-              ),
-              SightCard(sight: mockdata.mocks.last),
-              SizedBox(
-                height: 30,
-              ),
-              SightCard(sight: mockdata.mocks[1]),
-              SizedBox(
-                height: 30,
-              ),
-              SightCard(sight: mockdata.mocks[2]),
-              SizedBox(
-                height: 30,
-              ),
-              SightCard(sight: mockdata.mocks[3])
-            ]),
+          child: ListView.builder(
+            physics: BouncingScrollPhysics(),
+            itemBuilder: (ctx, index) => SightCard(sight: mocks[index]),
+            itemCount: mocks.length,
           ),
         ),
 

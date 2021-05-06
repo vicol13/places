@@ -44,64 +44,67 @@ class _PreviousSearchListState extends State<PreviousSearchList> {
   ///
   Widget _displayList() {
     return SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          ///
-          /// title
-          ///
-          Container(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              "You searched",
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
-          ),
-
-          ///
-          /// iterate throught list and display items
-          ///
-          for (int i = 0; i < widget.previousSearches.length; i++)
-            _SearchCard(
-              name: widget.previousSearches[i],
-              isFirst: i == 0,
-              onRemove: () {
-                setState(() {
-                  this.widget.previousSearches.removeAt(i);
-                });
-              },
-              onTapCard: this.widget.onElementPick,
-            ),
-          SizedBox(
-            height: 10,
-          ),
-
-          ///
-          /// remove  all previous search button
-          ///
-          Container(
-            alignment: Alignment.centerLeft,
-            child: InkWell(
-              onTap: () {
-                setState(() {
-                  this.widget.previousSearches.clear();
-                });
-              },
-              child: Container(
-                width: 75,
-                height: 40,
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Clear all",
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText1
-                      .copyWith(color: Theme.of(context).buttonColor),
-                ),
+      child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            ///
+            /// title
+            ///
+            Container(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "You searched",
+                style: Theme.of(context).textTheme.bodyText2,
               ),
             ),
-          )
-        ],
+
+            ///
+            /// iterate throught list and display items
+            ///
+            ListView.builder(
+                shrinkWrap: true,
+                physics: BouncingScrollPhysics(),
+                itemCount: widget.previousSearches.length,
+                itemBuilder: (ctx, index) {
+                  return _SearchCard(
+                    name: widget.previousSearches[index],
+                    isFirst: index == 0,
+                    onRemove: () {
+                      setState(() {
+                        this.widget.previousSearches.removeAt(index);
+                      });
+                    },
+                    onTapCard: this.widget.onElementPick,
+                  );
+                }),
+            ///
+            /// remove  all previous search button
+            ///
+            Container(
+              alignment: Alignment.centerLeft,
+              child: InkWell(
+                onTap: () {
+                  setState(() {
+                    this.widget.previousSearches.clear();
+                  });
+                },
+                child: Container(
+                  width: 75,
+                  height: 40,
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Clear all",
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1
+                        .copyWith(color: Theme.of(context).buttonColor),
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -125,49 +128,50 @@ class _SearchCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        padding: EdgeInsets.only(bottom: 10),
         child: Column(
-      children: [
-        _showSplitLine(!isFirst),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ///
-            ///card
-            ///
-            Expanded(
-                child: InkWell(
-              onTap: () {
-                onTapCard(name);
-              },
+            _showSplitLine(!isFirst),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ///
+                ///card
+                ///
+                Expanded(
+                    child: InkWell(
+                  onTap: () {
+                    onTapCard(name);
+                  },
 
-              ///
-              /// card text
-              ///
-              child: Container(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  name,
-                  style: TextStyle(color: Colors.grey),
-                ),
-                height: 50,
-              ),
-            )),
+                  ///
+                  /// card text
+                  ///
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      name,
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    height: 50,
+                  ),
+                )),
 
-            ///
-            /// remove button
-            ///
-            TextButton(
-                onPressed: onRemove,
-                child: SvgPicture.asset(
-                  CLEAR,
-                  color: Colors.grey,
-                  height: 15,
-                  width: 15,
-                ))
+                ///
+                /// remove button
+                ///
+                TextButton(
+                    onPressed: onRemove,
+                    child: SvgPicture.asset(
+                      CLEAR,
+                      color: Colors.grey,
+                      height: 15,
+                      width: 15,
+                    ))
+              ],
+            ),
           ],
-        ),
-      ],
-    ));
+        ));
   }
 
   Widget _showSplitLine(bool display) {
