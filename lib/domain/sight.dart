@@ -8,6 +8,15 @@ class Sight {
   final String url;
   final String details;
   final SightType type;
+  final List<String> photos;
 
-  Sight({this.id, this.details, this.lat, this.lon, this.name, this.type, this.url});
+  Sight(
+      {this.id,
+      this.details,
+      this.lat,
+      this.lon,
+      this.name,
+      this.type,
+      this.url,
+      this.photos});
 }
