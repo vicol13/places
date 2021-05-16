@@ -74,8 +74,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
   Widget _vistedTab() {
     return this.service.visited.isNotEmpty
         ? _listVisitedSights()
-        : _message(
-            ROUTE, "Finish route and sights will apear here");
+        : _message(ROUTE, "Finish route and sights will apear here");
   }
 
   ///
@@ -105,35 +104,37 @@ class _VisitingScreenState extends State<VisitingScreen> {
   }
 
   Widget _listVisitedSights() {
-    return SingleChildScrollView(
-      padding: EdgeInsets.only(top: 30),
-      child: Column(
-        children: [
-          for (var sight in service.visited)
-            Padding(
-              padding: const EdgeInsets.only(top: 15, bottom: 15),
-              child: VisitedSightCard(
-                key: ValueKey(sight.id),
-                sight: sight,
-                onDelete: () {
-                  setState(() {
-                    service.visited.remove(sight);
-                  });
-                },
-              ),
-            ),
-        ],
-      ),
-    );
+    return Padding(
+        padding: EdgeInsets.only(top: 30),
+        child: ListView.builder(
+            physics: BouncingScrollPhysics(),
+            itemCount: service.visited.length,
+            itemBuilder: (ctx, i) {
+              var sight = service.visited[i];
+              return Padding(
+                padding: const EdgeInsets.only(top: 15, bottom: 15),
+                child: WantToVisitSightCard(
+                  key: ValueKey(sight.id),
+                  sight: sight,
+                  onDelete: () {
+                    setState(() {
+                      service.visited.remove(sight);
+                    });
+                  },
+                ),
+              );
+            }));
   }
 
   Widget _listWantToVisitSights() {
-    return SingleChildScrollView(
+    return Padding(
       padding: EdgeInsets.only(top: 30),
-      child: Column(
-        children: [
-          for (var sight in service.wantToVisit)
-            Padding(
+      child: ListView.builder(
+          physics: BouncingScrollPhysics(),
+          itemCount: service.wantToVisit.length,
+          itemBuilder: (ctx, i) {
+            var sight = service.wantToVisit[i];
+            return Padding(
               padding: const EdgeInsets.only(top: 15, bottom: 15),
               child: WantToVisitSightCard(
                 key: ValueKey(sight.id),
@@ -144,9 +145,8 @@ class _VisitingScreenState extends State<VisitingScreen> {
                   });
                 },
               ),
-            )
-        ],
-      ),
+            );
+          }),
     );
   }
 }

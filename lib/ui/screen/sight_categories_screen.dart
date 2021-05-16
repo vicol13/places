@@ -34,41 +34,43 @@ class _SightTypesScreenState extends State<SightTypesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: TextButton(
-            onPressed: _navigateBack,
-            child: SvgPicture.asset(
-              LEFT_ARROW,
-              color: Theme.of(context).primaryColor,
-              height: 20,
-              width: 20,
-            ),
-          ),
-          centerTitle: true,
-          elevation: 0,
-          title: Text(
-            "Categories",
-            style: Theme.of(context).textTheme.subtitle1,
+      appBar: AppBar(
+        leading: TextButton(
+          onPressed: _navigateBack,
+          child: SvgPicture.asset(
+            LEFT_ARROW,
+            color: Theme.of(context).primaryColor,
+            height: 20,
+            width: 20,
           ),
         ),
-        body: Padding(
-            padding: EdgeInsets.only(left: 20, right: 20, top: 30),
-            child: Column(children: [
-              for (var type in SightType.values)
-                _SightFilterListCard(
-                  isSelected: map[type],
-                  onTap: () {
-                    _updateSelectedIndex(type);
-                  },
-                  name: type.toUiString(),
-                ),
-              Expanded(child: Container()),
-              ///
-              /// Save button
-              ///
-              Padding(
-                padding: const EdgeInsets.only(bottom: 40),
-                child: MaterialButton(
+        centerTitle: true,
+        elevation: 0,
+        title: Text(
+          "Categories",
+          style: Theme.of(context).textTheme.subtitle1,
+        ),
+      ),
+      body: Padding(
+        padding: EdgeInsets.only(left: 20, right: 20, top: 30),
+        child: Column(
+          children: [
+            for (var type in SightType.values)
+              _SightFilterListCard(
+                isSelected: map[type],
+                onTap: () {
+                  _updateSelectedIndex(type);
+                },
+                name: type.toUiString(),
+              ),
+            Expanded(child: Container()),
+
+            ///
+            /// Save button
+            ///
+            Padding(
+              padding: const EdgeInsets.only(bottom: 40),
+              child: MaterialButton(
                   onPressed: _navigateBack,
                   height: 50,
                   minWidth: double.infinity,
@@ -85,17 +87,18 @@ class _SightTypesScreenState extends State<SightTypesScreen> {
                   color: Theme.of(context).buttonColor,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15.0)),
-                  elevation: 0,
-                ),
-              ),
-            ])));
+                  elevation: 0),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   ///
   /// update values in map
   ///
   void _updateSelectedIndex(SightType newSelectedType) {
-   
     setState(() {
       map = map.map((key, value) {
         if (key == newSelectedType) {
