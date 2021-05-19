@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/screen/res/svgs.dart';
+import 'package:places/ui/screen/sight_details_screen/widgets/photo_carousel.dart';
 import 'package:places/ui/screen/widgets/network_image.dart';
 import 'package:places/domain/sight_type.dart';
 
@@ -30,11 +31,8 @@ class SightDetails extends StatelessWidget {
                   /// image gallery
                   ///
                   Container(
-                    width: double.infinity,
-                    color: Colors.red,
-                    child: NetworkImageWithLoader(
-                      url: this.sight.url,
-                      fit: BoxFit.contain,
+                    child: PhotoCarousel(
+                      elements: sight.photos,
                     ),
                   ),
 
@@ -72,7 +70,7 @@ class SightDetails extends StatelessWidget {
               /// body
               ///
               Expanded(
-                flex: 2,
+                // flex: 2,
                 child: Column(children: [
                   Container(
                     color: Theme.of(context).backgroundColor,

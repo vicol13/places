@@ -27,6 +27,7 @@ flutter:
     - res/assets/fonts/
     - res/assets/svg/filters_icons/
     - res/assets/svg/bottom_navigation/
+    - res/assets/svg/oboarding/
   fonts:
     - family : Roboto
       fonts:

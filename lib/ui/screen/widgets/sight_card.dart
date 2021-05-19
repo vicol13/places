@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/screen/res/svgs.dart';
+import 'package:places/ui/screen/sight_details_screen/sight_detailed_screen.dart';
 import 'package:places/ui/screen/widgets/network_image.dart';
 import 'package:places/domain/sight_type.dart';
 
@@ -17,7 +18,7 @@ class SightCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       child: Container(
-        padding: EdgeInsets.only(left: 15, right: 15,top: 30),
+        padding: EdgeInsets.only(left: 15, right: 15, top: 30),
         child: AspectRatio(
           aspectRatio: 3 / 2,
           child: ClipRRect(
@@ -53,7 +54,11 @@ class SightCard extends StatelessWidget {
                 type: MaterialType.transparency,
                 child: InkWell(
                   onTap: () {
-                    print("card pressed callback");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SightDetails(sight)),
+                    );
                   },
                 ),
               ),

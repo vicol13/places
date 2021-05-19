@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/provider/theme_provider.dart';
 import 'package:places/ui/screen/filters_screen.dart';
+import 'package:places/ui/screen/onboarding_screen/onboarding_screen.dart';
 import 'package:places/ui/screen/res/svgs.dart';
 import 'package:places/ui/screen/res/themes.dart';
 import 'package:places/ui/screen/settings_screen.dart';
@@ -22,7 +23,7 @@ class App extends StatelessWidget {
       return MaterialApp(
           title: 'Places',
           theme: provider.isDarkTheme ? darkTheme : brightTheme,
-          home: MainScreen());
+          home: OnboardingScreen());
     });
   }
 }
