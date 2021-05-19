@@ -21,3 +21,6 @@ const SEARCH = 'res/assets/svg/search.svg';
 const FILTERS = 'res/assets/svg/filter.svg';
 const PHOTO = 'res/assets/svg/photo.svg';
 const DELETE = 'res/assets/svg/delete.svg';
+const ROUTE_WOOD_SIGN = 'res/assets/svg/oboarding/route_wood_sign.svg';
+const BACKPACK = 'res/assets/svg/oboarding/backpack.svg';
+const TAP = 'res/assets/svg/oboarding/tap.svg';
