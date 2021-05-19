@@ -23,6 +23,7 @@ class _State extends State<SightListScreen> {
         child: AppBar(
           elevation: 0,
           centerTitle: false,
+          automaticallyImplyLeading: false,
           backgroundColor: Theme.of(context).backgroundColor,
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(80.0),
