@@ -9,7 +9,7 @@ class PhotoCarousel extends StatefulWidget {
 }
 
 class _PhotoCarouselState extends State<PhotoCarousel> {
-  int _currentIndex;
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Stack(
